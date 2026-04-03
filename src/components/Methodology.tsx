@@ -55,7 +55,7 @@ export default function Methodology() {
 
         <div className="relative overflow-hidden aspect-video group cursor-crosshair rounded-sm">
           <img
-            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200"
+            src="https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&q=80&w=1200"
             alt="Server Infrastructure"
             className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105 opacity-90"
           />

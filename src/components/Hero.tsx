@@ -109,7 +109,7 @@ export default function Hero() {
             <div className="aspect-square relative rounded-sm overflow-hidden bg-surface-container border border-outline-variant/10 group shadow-2xl">
               <img
                 className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-all duration-700"
-                src="https://images.unsplash.com/photo-1620712943543-bcc4628c9757?auto=format&fit=crop&q=80&w=800"
+                src="https://images.unsplash.com/photo-1770233621425-5d9ee7a0a700?auto=format&fit=crop&q=80&w=1200"
                 alt="AI Visualization"
               />
               

@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
     category: 'NLP & RAG',
     title: 'Trading-RAG-Bot',
     description: 'A free, unlimited personal trading and finance assistant powered by RAG (Retrieval-Augmented Generation). Chat with your trading/finance PDF books using natural language. Runs entirely locally with Ollama.',
-    image: 'https://images.unsplash.com/photo-1611974717483-9b25022df817?auto=format&fit=crop&q=80&w=1200',
+    image: 'https://images.unsplash.com/photo-1761850167081-473019536383?auto=format&fit=crop&q=80&w=1200',
     tech: ['LANGCHAIN', 'OLLAMA', 'FAISS'],
     color: 'secondary',
     github: 'https://github.com/rahulbharathi1921/Trading-RAG-Bot'
