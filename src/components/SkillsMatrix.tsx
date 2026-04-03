@@ -2,21 +2,20 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { SKILLS } from '../constants';
 import * as Icons from 'lucide-react';
-import { cn } from '../lib/utils';
 
 export default function SkillsMatrix() {
   return (
     <section className="py-24 px-8 max-w-7xl mx-auto">
       <header className="mb-20">
         <div className="flex items-center gap-4 mb-4">
-          <span className="h-[2px] w-12 bg-primary" />
-          <span className="font-headline text-primary tracking-[0.2em] text-xs uppercase">Core Competencies</span>
+          <span className="h-[2px] w-12 bg-secondary" />
+          <span className="font-headline text-secondary tracking-[0.2em] text-xs uppercase">Core Competencies</span>
         </div>
-        <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface leading-none mb-6">
-          SKILLS <span className="text-primary">MATRIX</span>
+        <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-6">
+          SKILLS <span className="text-secondary">MATRIX</span>
         </h1>
         <p className="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
-          An engineered overview of technical proficiency across the machine learning lifecycle and high-performance data architecture.
+          Deep proficiency across the ML lifecycle — from model design to production deployment and full-stack delivery.
         </p>
       </header>
 
@@ -26,39 +25,30 @@ export default function SkillsMatrix() {
           return (
             <motion.div
               key={skill.domain}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.5, 
-                delay: (i % 3) * 0.1,
-                ease: [0.215, 0.61, 0.355, 1]
-              }}
-              className="group bg-surface-container p-8 rounded-sm border-l-2 border-primary relative overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 glass-panel"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
+              className="group bg-surface-variant p-8 rounded-sm border border-primary/5 relative overflow-hidden transition-all hover:scale-[1.02] hover:border-secondary/15"
             >
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                {IconComponent && <IconComponent size={64} />}
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-15 transition-opacity text-primary">
+                {IconComponent && <IconComponent size={56} />}
               </div>
-              <div className="relative z-10">
-                <span className="font-headline text-primary-dim text-[10px] tracking-[0.2em] uppercase block mb-4">
-                  Domain {skill.domain}
-                </span>
-                <h3 className="font-headline text-2xl font-bold text-on-surface mb-4 tracking-tight">
-                  {skill.title}
-                </h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
-                  {skill.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {skill.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-surface-container-highest text-secondary text-[10px] font-headline rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <span className="font-headline text-secondary/60 text-[10px] tracking-[0.2em] uppercase block mb-4">
+                Domain {skill.domain}
+              </span>
+              <h3 className="font-headline text-xl font-bold mb-4 tracking-tight">
+                {skill.title}
+              </h3>
+              <p className="text-on-surface-variant/70 text-sm leading-relaxed mb-6">
+                {skill.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {skill.tags.map((tag) => (
+                  <span key={tag} className="px-3 py-1 bg-secondary/5 text-secondary text-[10px] font-headline rounded-full">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
           );

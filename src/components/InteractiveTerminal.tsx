@@ -1,81 +1,74 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
-import { Terminal as TerminalIcon, X, Minus, Square } from 'lucide-react';
+import { Terminal as TerminalIcon } from 'lucide-react';
 
-const COMMANDS = {
-  help: 'Available commands: about, skills, research, contact, clear, help',
-  about: 'Rahul: AI & DS Engineer specializing in Computer Vision and RAG systems. Passionate about model compression and edge intelligence.',
-  skills: 'Core Tech: PyTorch, TensorFlow, LangChain, Ollama, React, TypeScript, Python.',
-  research: 'Focus: Knowledge Distillation, Retrieval-Augmented Generation, Edge AI optimization.',
-  contact: 'Email: rahul@example.com | GitHub: rahulbharathi1921',
+const COMMANDS: Record<string, string> = {
+  about: 'Rahul Bharathi — AI & DS Engineer. Focus: Computer Vision, RAG, Knowledge Distillation.',
+  skills: 'Python, PyTorch, LangChain, Ollama, FAISS, React, TypeScript, XGBoost, Streamlit.',
+  research: 'Knowledge Distillation, Privacy-First RAG, Real-Time Inference, Financial ML.',
+  contact: 'Email: rahulbharathi1921@gmail.com | GitHub: github.com/rahulbharathi1921',
+  repos: '41+ public repos: VisionDistill, VoiceDistill, Trading-RAG-Bot, MIUI-decryptors, and more.',
+  help: 'Commands: about, skills, research, contact, repos, clear, help',
 };
 
 export default function InteractiveTerminal() {
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState<string[]>(['Welcome to RahulOS v1.0.0', 'Type "help" to see available commands.']);
+  const [history, setHistory] = useState<string[]>([
+    'Welcome to RahulOS v1.0 — type "help" to begin.',
+  ]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    scrollRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }, [history]);
 
-  const handleCommand = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const cmd = input.toLowerCase().trim();
-    
-    if (cmd === 'clear') {
-      setHistory([]);
-    } else if (cmd in COMMANDS) {
-      setHistory([...history, `> ${input}`, (COMMANDS as any)[cmd]]);
-    } else if (cmd !== '') {
-      setHistory([...history, `> ${input}`, `Command not found: ${cmd}. Type "help" for assistance.`]);
-    }
-    
+    if (!cmd) return;
+    const lines = COMMANDS[cmd]
+      ? [`> ${cmd}`, COMMANDS[cmd]]
+      : cmd === 'clear'
+      ? (setHistory(['Cleared. Type "help" to begin.']), [])
+      : [`> ${cmd}`, `Unknown: "${cmd}". Type "help".`];
+    setHistory(lines.length ? [...history, ...lines] : []);
     setInput('');
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto bg-[#0f172a] rounded-lg overflow-hidden shadow-2xl border border-slate-800 font-mono text-sm relative">
-      {/* Terminal Header */}
-      <div className="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+    <div className="w-full max-w-3xl mx-auto bg-surface-variant rounded-sm overflow-hidden border border-primary/10 font-mono text-sm relative">
+      {/* Header */}
+      <div className="px-4 py-3 flex items-center justify-between border-b border-primary/5">
         <div className="flex items-center gap-3">
           <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            <span className="w-3 h-3 rounded-full bg-slate-300" />
+            <span className="w-3 h-3 rounded-full bg-slate-300" />
+            <span className="w-3 h-3 rounded-full bg-slate-300" />
           </div>
-          <div className="flex items-center gap-2 ml-2">
-            <TerminalIcon size={14} className="text-secondary" />
-            <span className="text-slate-400 text-xs tracking-tight font-bold">RAHUL_TERMINAL_V1</span>
-          </div>
+          <TerminalIcon size={14} className="text-secondary ml-2" />
+          <span className="text-on-surface-variant/50 text-xs tracking-tight font-bold">RAHUL_TERMINAL</span>
         </div>
-        <div className="text-[10px] text-slate-500 uppercase tracking-widest">bash</div>
+        <span className="text-[10px] text-on-surface-variant/40 uppercase tracking-widest">bash</span>
       </div>
 
-      {/* Terminal Body */}
-      <div 
-        ref={scrollRef}
-        className="h-[400px] p-8 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-800 scrollbar-track-transparent bg-[#0f172a]/95"
-      >
+      {/* Body */}
+      <div className="h-[360px] p-6 overflow-y-auto" role="log">
         {history.map((line, i) => (
-          <div key={i} className={line.startsWith('>') ? "text-secondary font-bold mb-2" : "text-slate-300 mb-4 leading-relaxed"}>
+          <p key={i} className={line.startsWith('>') ? 'text-secondary font-bold mt-3' : 'text-on-surface-variant/70 mb-2 leading-relaxed'}>
             {line}
-          </div>
+          </p>
         ))}
-        
-        <form onSubmit={handleCommand} className="flex items-center gap-3 mt-2">
-          <span className="text-secondary font-bold">rahul@portfolio:~$</span>
+
+        <form onSubmit={handleSubmit} className="flex items-center gap-2 mt-3">
+          <span className="text-secondary font-bold shrink-0">{`rahul@portfolio:~$`}</span>
           <input
-            type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 bg-transparent border-none outline-none text-white caret-secondary placeholder:text-slate-600"
+            className="flex-1 bg-transparent border-none outline-none text-on-surface caret-secondary placeholder:text-on-surface-variant/30 text-sm"
             placeholder="type 'help'..."
             autoFocus
           />
         </form>
+        <div ref={scrollRef} />
       </div>
     </div>
   );

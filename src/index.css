@@ -6,24 +6,25 @@
   --font-headline: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-primary: #0f172a;
+  --color-primary: #0a0f1e;
   --color-on-primary: #ffffff;
-  --color-primary-dim: #1e293b;
-  --color-primary-container: #f1f5f9;
+  --color-primary-dim: #141b2d;
+  --color-primary-container: #0d1529;
   --color-secondary: #3b82f6;
   --color-on-secondary: #ffffff;
-  --color-secondary-dim: #2563eb;
+  --color-secondary-dim: #60a5fa;
   --color-tertiary: #64748b;
   --color-surface: #ffffff;
-  --color-surface-variant: #f8fafc;
-  --color-surface-container: #f1f5f9;
-  --color-surface-container-low: #f8fafc;
+  --color-surface-variant: #f6f8fc;
+  --color-surface-container: #eef2f7;
+  --color-surface-container-low: #f6f8fc;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-high: #e2e8f0;
-  --color-surface-container-highest: #cbd5e1;
-  --color-on-surface: #0f172a;
-  --color-on-surface-variant: #475569;
-  --color-outline-variant: #e2e8f0;
+  --color-surface-container-highest: #d5dcea;
+  --color-on-surface: #0a0f1e;
+  --color-on-surface-variant: #4a5568;
+  --color-outline: #94a3b8;
+  --color-outline-variant: #dce3ee;
 }
 
 @layer base {
@@ -51,7 +52,7 @@
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(10, 15, 30, 0.05);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
