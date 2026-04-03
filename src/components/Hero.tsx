@@ -84,9 +84,9 @@ export default function Hero() {
               className="mt-20 grid grid-cols-3 gap-12 border-t border-outline-variant/15 pt-10"
             >
               {[
-                { label: 'Specialization', value: 'COMPUTER VISION' },
-                { label: 'Core Tech', value: 'PYTORCH & RAG' },
-                { label: 'Architecture', value: 'ENTERPRISE AI' },
+                { label: 'Open Source', value: '41+ REPOSITORIES' },
+                { label: 'Core Stack', value: 'PYTHON + TYPESCRIPT' },
+                { label: '2026 Focus', value: 'DISTILLATION + RAG' },
               ].map((item) => (
                 <div key={item.label}>
                   <span className="block font-headline text-[10px] tracking-[0.15em] text-on-surface-variant uppercase mb-2">

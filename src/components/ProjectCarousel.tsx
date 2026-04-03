@@ -11,7 +11,7 @@ export default function ProjectCarousel() {
     <section id="projects" className="py-24 overflow-hidden">
       <div className="px-8 mb-16 max-w-7xl mx-auto flex justify-between items-end">
         <div>
-          <p className="font-headline text-primary-dim tracking-[0.2em] text-xs mb-4 uppercase">Project Archive: 2024</p>
+          <p className="font-headline text-primary-dim tracking-[0.2em] text-xs mb-4 uppercase">Project Archive: 2026</p>
           <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter leading-none">
             FEATURED <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">SOLUTIONS</span>
           </h2>
