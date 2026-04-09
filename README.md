@@ -1,4 +1,4 @@
-# Rahul | AI & DS Engineer Portfolio
+# Rahul | AI Engineer Portfolio
 
 A production-ready React + Vite portfolio showcasing AI and Data Science projects, research, skills, and experience.
 
